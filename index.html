@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>Typing Speed Test</title>
+    <meta name="description" content="A clean, minimal typing speed test. Pure HTML, CSS, and JavaScript." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container" role="main">
+      <section class="card" aria-labelledby="heading">
+        <header class="card-header">
+          <h1 id="heading" class="title text-balance">Typing Speed Test</h1>
+          <p class="subtitle">Start typing to begin the test.</p>
+        </header>
+
+        <div class="target-wrapper" aria-live="polite" aria-atomic="true">
+          <p id="target" class="target" aria-label="Target sentence to type"></p>
+        </div>
+
+        <label for="input" class="sr-only">Type the sentence here</label>
+        <textarea
+          id="input"
+          class="input"
+          rows="2"
+          placeholder="Type here..."
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          aria-describedby="helper"
+        ></textarea>
+        <div id="helper" class="helper">Timer starts on your first keystroke</div>
+
+        <div class="status">
+          <div class="timer" aria-live="polite">
+            <span class="label">Time:</span>
+            <span id="time">0.0s</span>
+          </div>
+          <button id="restart" class="button" type="button" aria-label="Restart test">Restart Test</button>
+        </div>
+
+        <div id="result" class="result hidden" role="region" aria-live="polite" aria-atomic="true">
+          <div class="result-row">
+            <div class="result-item">
+              <div class="result-label">WPM</div>
+              <div id="wpm" class="result-value">0</div>
+            </div>
+            <div class="result-item">
+              <div class="result-label">Accuracy</div>
+              <div id="accuracy" class="result-value">0%</div>
+            </div>
+          </div>
+          <p id="message" class="message" aria-label="Performance message"></p>
+        </div>
+      </section>
+
+      <section class="card leaderboard" aria-labelledby="leaderboard-heading">
+        <header class="card-header">
+          <h2 id="leaderboard-heading" class="title-sm">Recent Results</h2>
+          <p class="subtitle">Last 5 runs are stored locally on your device.</p>
+        </header>
+        <ul id="leaderboard" class="leaderboard-list" aria-live="polite"></ul>
+      </section>
+    </main>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
